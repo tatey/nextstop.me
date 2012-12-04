@@ -2,149 +2,163 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Next Stop &ndash; Never miss a stop or get lost on public transport with Next Stop for iPhone.</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Next Stop &ndash; Never miss a stop or get lost on busses with Next Stop for iPhone</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link href="http://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet" type="text/css">
     <style type="text/css">
-      html {
-        background: black url(background.jpg) top right fixed;
-        margin: 0;
-        padding: 0;
-      }
-
       body {
-        background-color: rgba(0, 0, 0, 0.75);
-        border-radius: 1em;
-        box-shadow: 0 0 3em black;
-        color: white;
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        background: #333 url('background.png');
+        color: #fff;
+        font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
         font-size: 1.1em;
-        line-height: 1.5em;
-        padding: 2.5em;
-        margin: 5em auto;
-        text-shadow: 1px 1px 0 black;
-        width: 45em;
+        line-height: 1.4em;
+        margin: 0 auto;
+        padding: 50px 0 50px 449px;
+        position: relative;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.8);
+        width: 500px;
       }
 
-      fieldset {
-        border: none;
-        margin: 3em 0;
-        text-align: center;
-      }
-
-      fieldset p {
-        font-size: 0.8em;
-        padding: 0 5.5em;
-        margin: none;
-      }
-
-      button, input {
-        border-radius: 0.25em;
-        font-size: 1.5em;
-        padding: 0.5em;
-      }
-
-      button {
-        background: #90af65;
-        background: -moz-linear-gradient(top, #90af65 0%, #43642e 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #90af65), color-stop(100%, #43642e));
-        background: -webkit-linear-gradient(top, #90af65 0%, #43642e 100%);
-        background: -o-linear-gradient(top, #90af65 0%, #43642e 100%);
-        background: -ms-linear-gradient(top, #90af65 0%, #43642e 100%);
-        background: linear-gradient(to bottom, #90af65 0%, #43642e 100%);
-        border: none; 
-        color: white;
-        cursor: pointer;
-        margin-left: 0.5em;
-        padding-left: 1em;
-        padding-right: 1em;
-        text-shadow: 0 -1px 0 black;
-      }
-
-      input {
-        background: rgba(255, 255, 255, 0.25);
-        border: none;
-        color: white;
-        outline: none;
-        width: 15em;
-      }
-
-      h1 {
-        font-size: 2.2em;
-        text-align: center;
-        line-height: 1.35em;
-        margin: 0;
+      @media only screen and (max-width: 768px) {
+        body {
+          padding: 10px 0;
+          width: 90%;
+        }
       }
 
       a {
-        color: #90af65;
+        color: #aaa;
       }
 
-      div.feature {
-        background-repeat: no-repeat;
-        background-position: left center;
-        min-height: 205px;
-        padding-bottom: 2em;
+      a:hover, a:active {
+        color: #eee;
       }
 
-      div.feature img {
-        border-radius: 0.75em;
-        box-shadow: 0 0.25em 1em rgba(000, 000, 000, 0.5);
-        float: left;
-        margin-right: 2.3em;
+      h1 {
+        font-size: 3em;
+      }
+
+      @media only screen and (max-width: 768px) {
+        h1 {
+          font-size: 2.5em;
+          margin: 0;
+          text-align: center;
+        }
+      }
+
+      h1, h2 {
+        font-family: 'Quicksand', 'Helvetica Neue', 'Helvetica', sans-serif;
+        text-shadow: 0 -2px 1px rgba(0,0,0,0.8);
+        text-transform: uppercase;
+      }
+
+      @media only screen and (max-width: 768px) {
+        h1, h2 {
+          line-height: 1.4em;
+        }
+      }
+
+      sup {
+        color: #777;
+        font-size: 0.75em;
+        padding-left: 0.25em;
+        text-decoration: none;
+      }
+
+      a#appstore {
+        background-image: url('appstore.png');
+        display: block;
+        margin: 30px auto;
+        height: 60px;
+        width: 271px;
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        a#appstore {
+          background-image: url('appstore@2x.png');
+          background-repeat: no-repeat;
+          background-size: 100%;
+        }
+      }
+
+      div#device {
+        background: url(device.png) center center no-repeat;
+        width: 399px;
+        height: 868px;
+        position: absolute;
+        left: 0;
+        top: 80px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        div#device {
+          display: none;
+        }
+      }
+
+      div#device video {
+        position: absolute;
+        left: 40px;
+        top: 133px;
       }
 
       div#footer {
+        color: #777;
         font-size: 0.8em;
-        margin-top: 0.5em;
-        padding: 0 5em;
-        text-align: center;
       }
 
-      div#footer p {
-        margin: 0;
+      div#footer div {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #333;
+        margin-top: 30px;
+        margin-bottom: 25px;
       }
 
-      div#footer p#beta {
-        font-size: 1.3em;
-        margin-top: 2em;
+      div#footer ol {
+        padding-left: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Never miss a stop or get lost on public transport with Next Stop for iPhone.</h1>
-    <form action="http://tatejohnson.createsend.com/t/r/s/yhuikii/" method="post">
-      <fieldset>
-        <input type="email" placeholder="E-mail" name="cm-yhuikii-yhuikii">
-        <button>Notify Me</button>
-        <p>
-          You are subscribing to receive a one-time e-mail when Next Stop is available on the App Store.
-          Alternatively, follow <a href="http://twitter.com/nxstop">@nxstop</a> for short updates.
-        </p>
-      </fieldset>
-    </form>
-    <div class="feature">
-      <img src="route.jpg" alt="">
-      <h2>Instantly find routes.</h2>
-      <p>Don't wait on a slow internet connection to find your route. Next Stop knows 11,945 stops over 440 routes in Brisbane, Logan, Gold Coast and Sunshine Coast. All of the data is reliably sourced from <a href="http://translink.com.au/">TransLink</a>.</p>
-    </div>
-    <div class="feature">
-      <img src="notification.jpg" alt="">
-      <h2>Get notified close to the stop.</h2>
-      <p>You don't have to worry about missing your stop or getting lost. Switch to another app, put your iPhone to sleep, or fall asleep. Next Stop will alert you when it's time to get off.</p>
+    <div id="body">
+      <h1>Next Stop</h1>
+      <p>Never miss a stop or get lost on busses. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
+      <a id="appstore" href="soon.html"></a>
+      <div id="device">
+        <video autoplay loop>
+          <source src="screencast.mp4" type="video/mp4" />
+          <source src="screencast.webm" type="video/webm" />
+        </video>
+      </div>
+      <h2>All the stops</h2>
+      <p>Tell Next Stop where you're going and it will find the closest<sup>2</sup> bus stop on your route in the direction of travel. Searching bus stops is instant.</p>
+      <h2>Get notified close to the stop</h2>
+      <p>You don't have to worry about missing your stop or getting lost. Switch to another app, put your iPhone to sleep, or fall asleep. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
+      <h2>Cities</h2>
+      <p>Next Stop knows 11,952 bus stops over 441 bus routes. All of the data is reliably sourced from <a href="http://translink.com.au/">TransLink</a>.<sup>3</sup></p>
+      <ul>
+        <li>Brisbane</li>
+        <li>Gold Coast</li>
+        <li>Logan</li>
+        <li>Sunshine Coast</li>
+      </ul>
+      <h2>Support</h2>
+      <p>We'd love to have your feedback. Tweet <a href="http://twitter.com/nxstop">@nxstop</a> or email <a href="mailto:support@nextstop.me">support@nextstop.me</a>. Follow us on <a href="http://twitter.com/nxstop">Twitter</a> for short updates.</p>
     </div>
     <div id="footer">
-      <p>
-        Next Stop designed, developed and &copy; 2012 <a href="http://tatey.com/">Tate Johnson</a>.
-        E-mail <a href="mailto:support@nextstop.me">support@nextstop.me</a> or tweet <a href="http://twitter.com/nxstop">@nxstop</a>.
-        Route and stop data sourced from <a href="http://translink.com.au/">TransLink</a>.
-        Next Stop is not affiliated with TransLink or the Brisbane City Council.
-      </p>
-      <p id="beta">
-        <a href="/beta/">Looking for the beta website?</a>
-      </p>
+      <div></div>
+      <p>Next Stop is designed, developed and &copy; 2012 <a href="http://tatey.com">Tate Johnson</a>, a regular commuter on public transport. Next Stop is exclusive to iOS on iPhone.</p>
+      <ol>
+        <li>Alert will vary based on device and external environmental factors.</li>
+        <li>Distance is measured by line-of-sight.</li>
+        <li>Route and stop data sourced from <a href="http://translink.com.au/">TransLink Transit Authority</a>. Next Stop is not affiliated with or endorsed by the TransLink Transit Authority.</li>
+      </ol>
     </div>
     <script type="text/javascript">
       var _gauges = _gauges || [];
       (function() {
+        if (window.location.hostname === 'localhost') return;
         var t   = document.createElement('script');
         t.type  = 'text/javascript';
         t.async = true;
