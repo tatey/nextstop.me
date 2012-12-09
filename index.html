@@ -20,10 +20,20 @@
         width: 500px;
       }
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1000px) {
         body {
           padding: 10px 0;
-          width: 90%;
+          width: 100%;
+        }
+
+        body > div#body > * {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
+
+        body > div#body > div#device {
+          margin-left: 0;
+          margin-right: 0;
         }
       }
 
@@ -39,7 +49,7 @@
         font-size: 3em;
       }
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1000px) {
         h1 {
           font-size: 2.5em;
           margin: 0;
@@ -53,7 +63,7 @@
         text-transform: uppercase;
       }
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 1000px) {
         h1, h2 {
           line-height: 1.4em;
         }
@@ -67,45 +77,58 @@
       }
 
       a#appstore {
-        background-image: url('appstore.png');
+        background: url('appstore.png') center top no-repeat;
         display: block;
         margin: 30px auto;
         height: 60px;
-        width: 271px;
       }
 
       @media screen and (-webkit-min-device-pixel-ratio: 2) {
         a#appstore {
           background-image: url('appstore@2x.png');
-          background-repeat: no-repeat;
-          background-size: 100%;
+          background-size: 271px;
         }
       }
 
       div#device {
-        background: url(device.png) center center no-repeat;
+        background: url(device.png) center top no-repeat;
         width: 399px;
         height: 868px;
+        padding-top: 133px;
         position: absolute;
         left: 0;
         top: 80px;
+        text-align: center;
       }
 
-      @media only screen and (max-width: 768px) {
+      @media screen and (-webkit-min-device-pixel-ratio: 2) {
         div#device {
-          display: none;
+          width: 393px;
+          background-image: url('device@2x.png');
+          background-size: 393px;
         }
       }
 
-      div#device video {
-        position: absolute;
-        left: 40px;
-        top: 133px;
+      @media only screen and (max-width: 1000px) {
+        div#device {
+          width: 100%;
+          position: static;
+          left: auto;
+          top: auto;
+          margin-bottom: -240px;
+        }
       }
 
       div#footer {
         color: #777;
         font-size: 0.8em;
+      }
+
+      @media only screen and (max-width: 1000px) {
+        div#footer {
+          margin-left: 5%;
+          margin-right: 5%;
+        }
       }
 
       div#footer div {
@@ -126,11 +149,26 @@
       <p>Never miss a stop or get lost on busses. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
       <a id="appstore" href="soon.html"></a>
       <div id="device">
-        <video autoplay loop>
+        <video width="320" height="480" poster="poster.png" loop autoplay>
           <source src="screencast.mp4" type="video/mp4" />
           <source src="screencast.webm" type="video/webm" />
         </video>
       </div>
+      <script type="text/javascript">
+        (function() {
+         if (!navigator.userAgent.match(/(iPad|iPhone|iPod|android)/i)) return;
+
+          var device   = document.getElementById('device'),
+              oldVideo = device.children[0],
+              newVideo = oldVideo.cloneNode(true);
+
+          newVideo.setAttribute('controls', true);
+          newVideo.removeAttribute('autoplay');
+
+          device.removeChild(oldVideo);
+          device.appendChild(newVideo);
+        }).call(this);
+      </script>
       <h2>All the stops</h2>
       <p>Tell Next Stop where you're going and it will find the closest<sup>2</sup> bus stop on your route in the direction of travel. Searching bus stops is instant.</p>
       <h2>Get notified close to the stop</h2>
