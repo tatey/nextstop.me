@@ -149,7 +149,7 @@
       <p>Never miss a stop or get lost on busses. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
       <a id="appstore" href="soon.html"></a>
       <div id="device">
-        <video width="320" height="480" poster="poster.png" loop autoplay>
+        <video width="320" height="480" poster="poster.png" controls loop autoplay>
           <source src="screencast.mp4" type="video/mp4" />
           <source src="screencast.webm" type="video/webm" />
         </video>
@@ -162,7 +162,6 @@
               oldVideo = device.children[0],
               newVideo = oldVideo.cloneNode(true);
 
-          newVideo.setAttribute('controls', true);
           newVideo.removeAttribute('autoplay');
 
           device.removeChild(oldVideo);
