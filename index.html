@@ -120,9 +120,23 @@
         }
       }
 
+      @media only screen and (max-width: 320px) {
+        div#device {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
       div#device video {
         position: relative;
         left: 40px;
+      }
+
+      @media only screen and (max-width: 320px) {
+        div#device video {
+          position: static;
+          left: auto;
+        }
       }
 
       div#footer {
