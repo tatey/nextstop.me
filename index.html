@@ -99,7 +99,6 @@
         position: absolute;
         left: 0;
         top: 80px;
-        text-align: center;
       }
 
       @media screen and (-webkit-min-device-pixel-ratio: 2) {
@@ -112,12 +111,18 @@
 
       @media only screen and (max-width: 1000px) {
         div#device {
-          width: 100%;
           position: static;
           left: auto;
           top: auto;
+          margin-left: auto !important;
+          margin-right: auto !important;
           margin-bottom: -240px;
         }
+      }
+
+      div#device video {
+        position: relative;
+        left: 40px;
       }
 
       div#footer {
