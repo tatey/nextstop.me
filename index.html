@@ -14,25 +14,30 @@
         font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
         font-size: 1.1em;
         line-height: 1.4em;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.8);
+        margin: 0;
+        padding: 0;
+      }
+
+      div#container {
+        width: 500px;
         margin: 0 auto;
         padding: 50px 0 50px 449px;
         position: relative;
-        text-shadow: 0 -1px 1px rgba(0,0,0,0.8);
-        width: 500px;
       }
 
       @media only screen and (max-width: 1000px) {
-        body {
+        div#container {
           padding: 10px 0;
           width: 100%;
         }
 
-        body > div#body > * {
+        div#container > div#body > * {
           margin-left: 5%;
           margin-right: 5%;
         }
 
-        body > div#body > div#device {
+        div#container > div#body > div#device {
           margin-left: 0;
           margin-right: 0;
         }
@@ -77,15 +82,19 @@
         text-decoration: none;
       }
 
-      a#appstore {
+      div#appstore {
         background: url('appstore.png') center top no-repeat;
         display: block;
         margin: 30px auto;
         height: 60px;
       }
 
+      div#appstore:hover {
+        cursor: not-allowed;
+      }
+
       @media screen and (-webkit-min-device-pixel-ratio: 2) {
-        a#appstore {
+        div#appstore {
           background-image: url('appstore@2x.png');
           background-size: 271px;
         }
@@ -160,58 +169,78 @@
       div#footer ol {
         padding-left: 20px;
       }
+
+      div#alert {
+        background: white;
+        color: black;
+        text-shadow: none;
+        text-align: center;
+        padding: 20px;
+      }
+
+      div#alert a {
+        color: black;
+      }
     </style>
   </head>
   <body>
-    <div id="body">
-      <h1>Next Stop</h1>
-      <p>Never miss a stop or get lost on buses. Next Stop will alert you when it's time to hop off.<sup>1</sup> Next Stop is used by regular and first-time commuters.</p>
-      <a id="appstore" href="https://itunes.apple.com/au/app/next-stop/id583674519?ls=1&mt=8"></a>
-      <div id="device">
-        <video width="320" height="480" poster="poster.png" controls loop autoplay>
-          <source src="screencast.mp4" type="video/mp4" />
-          <source src="screencast.webm" type="video/webm" />
-        </video>
-      </div>
-      <script type="text/javascript">
-        (function() {
-         if (!navigator.userAgent.match(/(iPad|iPhone|iPod|android)/i)) return;
-
-          var device   = document.getElementById('device'),
-              oldVideo = device.children[0],
-              newVideo = oldVideo.cloneNode(true);
-
-          newVideo.removeAttribute('autoplay');
-
-          device.removeChild(oldVideo);
-          device.appendChild(newVideo);
-        }).call(this);
-      </script>
-      <h2>All the stops</h2>
-      <p>Tell Next Stop where you're going and it will find the closest<sup>2</sup> bus stop on your route in the direction of travel. Searching bus stops is instant.</p>
-      <h2>Get notified close to the stop</h2>
-      <p>You don't have to worry about missing your stop or getting lost. Switch to another app, put your iPhone to sleep, or fall asleep. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
-      <h2>Cities</h2>
-      <p>Next Stop knows 11,952 bus stops over 441 bus routes. All of the data is reliably sourced from <a href="http://translink.com.au/">TransLink</a>.<sup>3</sup></p>
-      <ul>
-        <li>Brisbane</li>
-        <li>Gold Coast</li>
-        <li>Logan</li>
-        <li>Sunshine Coast</li>
-      </ul>
-      <h2>Nice to your battery</h2>
-      <p>Continued use of GPS running in the background can dramatically decrease battery life. That's why Next Stop minimises the use of GPS until you're really close to the bus stop. The end result is better accuracy when you're close to the bus stop and better battery life when you're not.</p>
-      <h2>Support</h2>
-      <p>We'd love to have your feedback. Tweet <a href="http://twitter.com/nxstop">@nxstop</a> or email <a href="mailto:support@nextstop.me">support@nextstop.me</a>. Follow us on <a href="http://twitter.com/nxstop">Twitter</a> for short updates.</p>
+    <div id="alert">
+      <p>
+      Next Stop is no longer available on the App Store. It was fun to build and made sure I got off at the right stop. The truth is, it hasn't sold that well and apps like <a href="https://itunes.apple.com/au/app/tripplanner-sydney/id533630842?mt=8">TripGo</a> do the same thing and everything else a commuter could want. At the end of the day, I support any well built piece of software that helps to increase public transport consumption. Everyone wins when someone chooses to catch a bus instead of driving a car. Thank you to everyone who supported Next Stop, especially Jason Weathered, Odin Dutton and Rachael Battle.
+      </p>
+      <p><em>&mdash; Tate Johnson</em></p>
     </div>
-    <div id="footer">
-      <div></div>
-      <p>Next Stop is designed, developed and &copy; 2012-2013 <a href="http://tatey.com/about/">Tate Johnson</a>, a regular commuter on public transport. Next Stop is exclusive to iOS on iPhone.</p>
-      <ol>
-        <li>Alert will vary based on device and external environmental factors.</li>
-        <li>Distance is measured by line-of-sight.</li>
-        <li>Route and stop data sourced from <a href="http://translink.com.au/">TransLink Transit Authority</a>. Next Stop is not affiliated with or endorsed by the TransLink Transit Authority.</li>
-      </ol>
+    <div id="container">
+      <div id="body">
+        <h1>Next Stop</h1>
+        <p>Never miss a stop or get lost on buses. Next Stop will alert you when it's time to hop off.<sup>1</sup> Next Stop is used by regular and first-time commuters.</p>
+        <div id="appstore"></div>
+        <div id="device">
+          <video width="320" height="480" poster="poster.png" controls loop autoplay>
+            <source src="screencast.mp4" type="video/mp4" />
+            <source src="screencast.webm" type="video/webm" />
+          </video>
+        </div>
+        <script type="text/javascript">
+          (function() {
+           if (!navigator.userAgent.match(/(iPad|iPhone|iPod|android)/i)) return;
+
+            var device   = document.getElementById('device'),
+                oldVideo = device.children[0],
+                newVideo = oldVideo.cloneNode(true);
+
+            newVideo.removeAttribute('autoplay');
+
+            device.removeChild(oldVideo);
+            device.appendChild(newVideo);
+          }).call(this);
+        </script>
+        <h2>All the stops</h2>
+        <p>Tell Next Stop where you're going and it will find the closest<sup>2</sup> bus stop on your route in the direction of travel. Searching bus stops is instant.</p>
+        <h2>Get notified close to the stop</h2>
+        <p>You don't have to worry about missing your stop or getting lost. Switch to another app, put your iPhone to sleep, or fall asleep. Next Stop will alert you when it's time to hop off.<sup>1</sup></p>
+        <h2>Cities</h2>
+        <p>Next Stop knows 11,952 bus stops over 441 bus routes. All of the data is reliably sourced from <a href="http://translink.com.au/">TransLink</a>.<sup>3</sup></p>
+        <ul>
+          <li>Brisbane</li>
+          <li>Gold Coast</li>
+          <li>Logan</li>
+          <li>Sunshine Coast</li>
+        </ul>
+        <h2>Nice to your battery</h2>
+        <p>Continued use of GPS running in the background can dramatically decrease battery life. That's why Next Stop minimises the use of GPS until you're really close to the bus stop. The end result is better accuracy when you're close to the bus stop and better battery life when you're not.</p>
+        <h2>Support</h2>
+        <p>We'd love to have your feedback. Tweet <a href="http://twitter.com/nxstop">@nxstop</a> or email <a href="mailto:support@nextstop.me">support@nextstop.me</a>. Follow us on <a href="http://twitter.com/nxstop">Twitter</a> for short updates.</p>
+      </div>
+      <div id="footer">
+        <div></div>
+        <p>Next Stop is designed, developed and &copy; 2012-2013 <a href="http://tatey.com/about/">Tate Johnson</a>, a regular commuter on public transport. Next Stop is exclusive to iOS on iPhone.</p>
+        <ol>
+          <li>Alert will vary based on device and external environmental factors.</li>
+          <li>Distance is measured by line-of-sight.</li>
+          <li>Route and stop data sourced from <a href="http://translink.com.au/">TransLink Transit Authority</a>. Next Stop is not affiliated with or endorsed by the TransLink Transit Authority.</li>
+        </ol>
+      </div>
     </div>
     <script type="text/javascript">
       var _gauges = _gauges || [];
