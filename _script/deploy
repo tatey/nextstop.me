@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -Rf _site/
+bundle exec jekyll build
+bundle exec jekyll-s3

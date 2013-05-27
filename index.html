@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,11 +8,11 @@
     <meta name="apple-itunes-app" content="app-id=583674519">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Next Stop &ndash; An iPhone app that makes sure you never miss a stop or get lost on buses in Brisbane, Logan, Gold Coast and Sunshine Coast</title>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="{% asset_path favicon.png %}" type="image/png">
     <link href="http://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet" type="text/css">
     <style type="text/css">
       body {
-        background: #333 url('background.png');
+        background: #333 url('{% asset_path background.png %}');
         color: #fff;
         font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
         font-size: 1.1em;
@@ -83,7 +86,7 @@
       }
 
       div#appstore {
-        background: url('appstore.png') center top no-repeat;
+        background: url('{% asset_path appstore.png %}') center top no-repeat;
         display: block;
         margin: 30px auto;
         height: 60px;
@@ -95,13 +98,13 @@
 
       @media screen and (-webkit-min-device-pixel-ratio: 2) {
         div#appstore {
-          background-image: url('appstore@2x.png');
+          background-image: url('{% asset_path appstore@2x.png %}');
           background-size: 271px;
         }
       }
 
       div#device {
-        background: url(device.png) center top no-repeat;
+        background: url('{% asset_path device.png %}') center top no-repeat;
         width: 399px;
         height: 868px;
         padding-top: 133px;
@@ -112,7 +115,7 @@
 
       @media screen and (-webkit-min-device-pixel-ratio: 2) {
         div#device {
-          background-image: url('device@2x.png');
+          background-image: url('{% asset_path device@2x.png %}');
           background-size: 393px;
         }
       }
@@ -197,8 +200,8 @@
         <div id="appstore"></div>
         <div id="device">
           <video width="320" height="480" poster="poster.png" controls loop autoplay>
-            <source src="screencast.mp4" type="video/mp4" />
-            <source src="screencast.webm" type="video/webm" />
+            <source src="{% asset_path screencast.mp4 %}" type="video/mp4" />
+            <source src="{% asset_path screencast.webm %}" type="video/webm" />
           </video>
         </div>
         <script type="text/javascript">
