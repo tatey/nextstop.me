@@ -199,7 +199,7 @@
         <p>Never miss a stop or get lost on buses. Next Stop will alert you when it's time to hop off.<sup>1</sup> Next Stop is used by regular and first-time commuters.</p>
         <div id="appstore"></div>
         <div id="device">
-          <video width="320" height="480" poster="poster.png" controls loop autoplay>
+          <video width="320" height="480" poster="{% asset_path poster.png %}" controls loop autoplay>
             <source src="{% asset_path screencast.mp4 %}" type="video/mp4" />
             <source src="{% asset_path screencast.webm %}" type="video/webm" />
           </video>
