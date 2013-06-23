@@ -1,4 +1,6 @@
-# Antenna Mate
+# Next Stop
+
+This is the website of http://nextstop.me.
 
 ## Installation
 
