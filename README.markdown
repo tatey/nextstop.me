@@ -15,7 +15,11 @@ Serve.
 
 Configure _jekyll_s3.yml. See [jekyll-s3 for more information](https://github.com/laurilehmijoki/jekyll-s3).
 
-Deploy
+Configure bucket.
+
+    $ [bundle exec] configure-s3-website --config-file _jekyll_s3.yml
+
+Deploy.
 
     $ _script/deploy
 
